@@ -132,7 +132,7 @@ fdk.handle(async function(input, ctx){
 		//jiraClientId      = await getSecret('jira-ClientId');
 		//jiraClientSecret  = await getSecret('jira-ClientSecret');
 		//return {"ociCompartmentName": getCompartmentOCID(ociCompartmentName)};
-		return {"ociCompartmentName": ociCompartmentName};
+		return {provider};
 	} catch (error) {
 		console.error('Error fetching data:', error);
 		return error;
