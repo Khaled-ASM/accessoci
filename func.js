@@ -10,16 +10,17 @@ const keymanagement = require("oci-keymanagement");
 
 fdk.handle(async function(input, ctx){
 	let jiraClientId;
+	let jiraClientSecret;
 	//const provider      	  = new common.ConfigFileAuthenticationDetailsProvider(); // locally using config file
 	const provider 			  = new common.ResourcePrincipalAuthenticationDetailsProvider(); // using resource principal provider of OCI
 	const ociVaultName        = "IBA Vault";
 	const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";
 	//const app 				  = express();
 	
-	(async() => {
-	  jiraClientId      = await getSecret('jira-ClientId');
-	  jiraClientSecret  = await getSecret('jira-ClientSecret');
-	})();
+	//(async() => {
+	//  jiraClientId      = await getSecret('jira-ClientId');
+	//  jiraClientSecret  = await getSecret('jira-ClientSecret');
+	//})();
 	
 	async function getVaultOCID(vaultName, compartmentId) {
 	  try {
@@ -128,6 +129,8 @@ fdk.handle(async function(input, ctx){
 	}
 	
 	try {
+		jiraClientId      = await getSecret('jira-ClientId');
+		jiraClientSecret  = await getSecret('jira-ClientSecret');
 		return {"jiraClientId": jiraClientId,
 				"jiraClientSecret": jiraClientSecret};
 	} catch (error) {
