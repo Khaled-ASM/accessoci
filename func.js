@@ -13,6 +13,7 @@ fdk.handle(async function(input, ctx){
 	let jiraClientSecret;
 	//const provider      	  = new common.ConfigFileAuthenticationDetailsProvider(); // locally using config file
 	const provider 			  = new common.ResourcePrincipalAuthenticationDetailsProvider(); // using resource principal provider of OCI
+	const identityClient 	  = new identity.IdentityClient({authenticationDetailsProvider: provider});
 	const ociVaultName        = "IBA Vault";
 	const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";
 	//const app 				  = express();
@@ -78,7 +79,7 @@ fdk.handle(async function(input, ctx){
 
 	async function getCompartmentOCID(compartmentName) {
 	  try {
-		  const identityClient = new identity.IdentityClient({authenticationDetailsProvider: provider});
+		  
 
 		  // Set the tenancy OCID (root compartment)
 		  const tenancyId = provider.getTenantId();
@@ -132,7 +133,7 @@ fdk.handle(async function(input, ctx){
 		//jiraClientId      = await getSecret('jira-ClientId');
 		//jiraClientSecret  = await getSecret('jira-ClientSecret');
 		//return {"ociCompartmentName": getCompartmentOCID(ociCompartmentName)};
-		return {provider};
+		return {provider.getProvider()};
 	} catch (error) {
 		console.error('Error fetching data:', error);
 		return error;
