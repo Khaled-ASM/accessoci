@@ -129,9 +129,10 @@ fdk.handle(async function(input, ctx){
 	}
 	
 	try {
-		jiraClientId      = await getSecret('jira-ClientId');
-		jiraClientSecret  = await getSecret('jira-ClientSecret');
-		return {"ociCompartmentName": getCompartmentOCID(ociCompartmentName)};
+		//jiraClientId      = await getSecret('jira-ClientId');
+		//jiraClientSecret  = await getSecret('jira-ClientSecret');
+		//return {"ociCompartmentName": getCompartmentOCID(ociCompartmentName)};
+		return {"ociCompartmentName": "duno"};
 	} catch (error) {
 		console.error('Error fetching data:', error);
 		return error;
