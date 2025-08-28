@@ -10,7 +10,7 @@ fdk.handle(async function(input, ctx){
 		let jiraClientId	= 0;
 		let jiraClientSecret= 0;
 		const provider 			  = new common.ResourcePrincipalAuthenticationDetailsProvider(); // using resource principal provider of OCI
-	//	const identityClient 	  = new identity.IdentityClient({authenticationDetailsProvider: provider});
+		const identityClient 	  = new identity.IdentityClient({authenticationDetailsProvider: provider});
 		const ociVaultName        = "IBA Vault";
 		const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";	
 
