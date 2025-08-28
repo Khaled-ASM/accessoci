@@ -10,16 +10,16 @@ fdk.handle(async function(input, ctx){
 		let jiraClientId	= 0;
 		let jiraClientSecret= 0;
 		const provider:ResourcePrincipalAuthenticationDetailsProvider = new common.ResourcePrincipalAuthenticationDetailsProvider(); // using resource principal provider of OCI
-		//(async () => {
-		//const identityClient 	  = await new identity.IdentityClient({authenticationDetailsProvider: provider});
+		(async () => {
+		const identityClient 	  = await new identity.IdentityClient({authenticationDetailsProvider: provider});
 		
 		//const provider 			= new common.ResourcePrincipalAuthenticationDetailsProvider();
         //const identityClient 	= new identity.IdentityClient({ authenticationDetailsProvider: provider });
 		const ociVaultName        = "IBA Vault";
 		const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";	
 		
-		//})();
-		return {"tenantId": provider.getTenantId()};
+		})();
+		return {"tenantId": "no value"}; //provider.getTenantId()
 	//} catch (error) {
 	//	console.error('Error fetching data:', error);
 	//	return error;
