@@ -17,7 +17,7 @@ fdk.handle(async function(input, ctx){
 	const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";	
 
 	try {
-		return {"tenantId": provider.getTenantId()};
+		return {"tenantId": "new"};
 	} catch (error) {
 		console.error('Error fetching data:', error);
 		return error;
