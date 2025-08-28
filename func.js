@@ -6,7 +6,7 @@ const identity      = require("oci-identity");
 const keymanagement = require("oci-keymanagement");
 
 fdk.handle(async function(input, ctx){
-	try {
+	//try {
 		let jiraClientId	= 0;
 		let jiraClientSecret= 0;
 		const provider 			  = new common.ResourcePrincipalAuthenticationDetailsProvider(); // using resource principal provider of OCI
@@ -15,8 +15,8 @@ fdk.handle(async function(input, ctx){
 		const ociCompartmentName  = "NONPROD-Oracle-Integration-CMP";	
 
 		return {"tenantId": "new"};
-	} catch (error) {
-		console.error('Error fetching data:', error);
-		return error;
-	}
+	//} catch (error) {
+	//	console.error('Error fetching data:', error);
+	//	return error;
+	//}
 })
